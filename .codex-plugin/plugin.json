@@ -1,6 +1,6 @@
 {
   "name": "hestiacp",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "使用自选面板的 HestiaCP 原生 REST API 查询网站、DNS、数据库和备份，按明确的域名创建网站。",
   "author": {
     "name": "LastDreamTeam",

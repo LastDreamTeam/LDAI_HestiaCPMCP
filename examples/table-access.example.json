@@ -1,0 +1,18 @@
+{
+  "engine": "pgsql",
+  "host": "db.example.org",
+  "database": "work",
+  "user": "application",
+  "password_file": "/private/db-password",
+  "ca_file": "/private/db-ca",
+  "tables": {
+    "orders": {
+      "table": "orders",
+      "primary_key": "order_id",
+      "columns": [
+        "status",
+        "comment"
+      ]
+    }
+  }
+}

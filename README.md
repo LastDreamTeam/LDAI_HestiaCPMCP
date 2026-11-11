@@ -10,6 +10,12 @@ Python 3.11+。运行 `python -m venv .venv` 后，在该环境中运行 `python
 
 使用 `python client_config.py cursor`、`python client_config.py dsh` 或 `python client_config.py codex` 输出对应客户端的配置。将其合并到已有 MCP 或 DSH 插件列表。配置生成器接受重复的 `--env NAME=VALUE` 以传递路径和站点设置。
 
+## 账号管理窗口
+
+在 Codex 对本插件说「管理账号」，或直接运行 python account_manager.py。在窗口中新增连接、编辑显示名和标识、重新连接或断开，修改后刷新客户端工具列表。站点和凭据文件路径仅存当前操作系统用户的配置。已有自定义适配器保留其授权方式；可并行添加原生账号。图形窗口需要 Python 的 Tk 组件，远程无桌面执行器可使用账号 JSON。
+
+面板支持创建站点、查询文档根目录、添加域名别名、DNS 查询、FTP 创建与改密、数据库创建/详情/改密/删除。FTP 创建传不含面板用户前缀的短名，改密传实际完整 FTP 用户名。FTP/数据库新密码由本机 HESTIA_PASSWORD_DIR/<reference>.txt 提供。业务表工具按允许的表、字段和主键增删查改。删库、删行先预览，请求发出后由人打开账号管理窗口的「审核删除」审批，再用同一请求执行；十分钟过期、一次有效。
+
 ## 多账号和终端更新
 
 MCP 入口为 `router.py`，需要 Python 3.11+。主机在本地保存账号配置，默认位置为 `~/.config/ldai-mcp/hestiacp/accounts.json`，也可用 `LDAI_ACCOUNTS_FILE` 指定。复制 [两账号示例](examples/accounts.example.json)，将地址与路径换成自己的值。每个账号分别设置 HestiaCP 面板地址、访问密钥文件和默认用户。
@@ -28,3 +34,7 @@ MCP 入口为 `router.py`，需要 Python 3.11+。主机在本地保存账号配
 
 - [hestiacp/hestiacp](https://github.com/hestiacp/hestiacp) · 4569 stars，默认分支 13253 次提交
 - [solkiewicz-artforin/hestiacp-mcp](https://github.com/solkiewicz-artforin/hestiacp-mcp) · 1 stars，默认分支 9 次提交
+
+## 业务表连接
+
+通过 HESTIA_DATA_CONFIG_FILE 指向仅本机可读的 JSON。每个账号提供 database、engine，以及 tables 字典。表条目标明 table、primary_key 和允许的 columns。PostgreSQL 使用 pgsql 并安装 psycopg[binary]；MySQL 使用 mysql 并安装 PyMySQL。两者均需 host、user、password_file 和 TLS ca_file；SQLite 使用已存在的数据库文件。使用独立的最小权限数据库用户。[示例](examples/table-access.example.json)
