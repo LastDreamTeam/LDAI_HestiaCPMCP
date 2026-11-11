@@ -1,10 +1,11 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "hestiacp",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "使用自选面板的 HestiaCP 原生 REST API 查询网站、DNS、数据库和备份，按明确的域名创建网站。",
   "author": {
-    "name": "LastDreamTeam"
+    "name": "LastDreamTeam",
+    "email": "noreply@example.org"
   },
   "repository": "https://github.com/LastDreamTeam/LDAI_HestiaCPMCP",
   "homepage": "https://github.com/LastDreamTeam/LDAI_HestiaCPMCP",
