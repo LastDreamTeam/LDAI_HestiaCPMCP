@@ -1,0 +1,18 @@
+{
+  "issuer": "https://identity.example.org",
+  "origin": "https://connector.example.org",
+  "jwks_uri": "https://identity.example.org/jwks",
+  "runtime": "/opt/connector/bin/python",
+  "bindings": {
+    "replace-with-idp-subject": {
+      "id": "b171c5ce-86d8-4bb4-9b88-e0c625ac0137",
+      "label": "Work",
+      "home": "/var/lib/connector/work",
+      "env": {
+        "HESTIA_BASE_URL": "https://provider.example.org",
+        "HESTIA_USER": "example",
+        "HESTIA_KEY_FILE": "/var/lib/connector/work/hestia_key_file"
+      }
+    }
+  }
+}

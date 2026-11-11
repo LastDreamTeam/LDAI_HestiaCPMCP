@@ -38,3 +38,5 @@ MCP 入口为 `router.py`，需要 Python 3.11+。主机在本地保存账号配
 ## 业务表连接
 
 通过 HESTIA_DATA_CONFIG_FILE 指向仅本机可读的 JSON。每个账号提供 database、engine，以及 tables 字典。表条目标明 table、primary_key 和允许的 columns。PostgreSQL 使用 pgsql 并安装 psycopg[binary]；MySQL 使用 mysql 并安装 PyMySQL。两者均需 host、user、password_file 和 TLS ca_file；SQLite 使用已存在的数据库文件。使用独立的最小权限数据库用户。[示例](examples/table-access.example.json)
+
+[原生插件页多账号接入候选版：部署、覆盖范围与验收](native_account/README.md)

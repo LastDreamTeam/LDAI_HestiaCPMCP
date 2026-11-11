@@ -1,0 +1,26 @@
+{
+  "product": "hestiacp",
+  "tool": "hestia_list_websites",
+  "description": "列出这个 HestiaCP 用户的网站。",
+  "keys": [
+    "HESTIA_BASE_URL",
+    "HESTIA_USER",
+    "HESTIA_KEY_FILE"
+  ],
+  "required": [
+    "HESTIA_BASE_URL",
+    "HESTIA_USER",
+    "HESTIA_KEY_FILE"
+  ],
+  "private_paths": [
+    "HESTIA_KEY_FILE"
+  ],
+  "url_keys": [
+    "HESTIA_BASE_URL"
+  ],
+  "entry": "server.py",
+  "args": {},
+  "bound_args": {
+    "user": "HESTIA_USER"
+  }
+}
