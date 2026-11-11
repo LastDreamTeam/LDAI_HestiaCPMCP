@@ -1,0 +1,18 @@
+{
+  "id": "hestiacp",
+  "version": "0.2.0",
+  "repository": "https://github.com/LastDreamTeam/LDAI_HestiaCPMCP",
+  "runtime": "python",
+  "toolPrefixes": [
+    "hestia_"
+  ],
+  "providerEnvironment": [
+    "HESTIA_BASE_URL",
+    "HESTIA_KEY_FILE",
+    "HESTIA_USER"
+  ],
+  "requiredMulti": [
+    "HESTIA_BASE_URL",
+    "HESTIA_KEY_FILE"
+  ]
+}

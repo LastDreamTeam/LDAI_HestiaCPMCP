@@ -1,0 +1,19 @@
+{
+  "connector": "hestiacp",
+  "accounts": {
+    "work": {
+      "env": {
+        "HESTIA_BASE_URL": "https://panel.example.org:8083",
+        "HESTIA_KEY_FILE": "/private/work/hestia-key",
+        "HESTIA_USER": "work"
+      }
+    },
+    "personal": {
+      "env": {
+        "HESTIA_BASE_URL": "https://panel.example.org:8083",
+        "HESTIA_KEY_FILE": "/private/personal/hestia-key",
+        "HESTIA_USER": "personal"
+      }
+    }
+  }
+}
