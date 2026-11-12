@@ -1,6 +1,6 @@
 {
   "id": "hestiacp",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "repository": "https://github.com/LastDreamTeam/LDAI_HestiaCPMCP",
   "runtime": "python",
   "toolPrefixes": [
@@ -17,7 +17,7 @@
     "HESTIA_BASE_URL",
     "HESTIA_KEY_FILE"
   ],
-  "title": "HestiaCP 网站管理",
+  "title": "HestiaCP Site Manager",
   "managerFields": {
     "HESTIA_BASE_URL": "面板地址",
     "HESTIA_KEY_FILE": "访问密钥文件",

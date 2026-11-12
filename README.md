@@ -1,4 +1,4 @@
-# HestiaCP 网站管理 MCP
+# HestiaCP Site Manager MCP
 
 > **自用项目** · 本仓库主要供维护者自用。
 
