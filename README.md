@@ -2,7 +2,15 @@
 
 > **自用项目** · 本仓库主要供维护者自用。
 
-使用自选面板的 HestiaCP 原生 REST API 查询网站、DNS、数据库和备份，按明确的域名创建网站。
+[English quick start](#english-quick-start)
+
+在 Agent 里查看自己管理的 HestiaCP 面板。可以从某个面板用户的网站查起，再按域名查看站点资料，也可以按权限管理 DNS、数据库和备份。
+
+## 查出一个面板用户有哪些网站
+
+接入面板后，可以问「列出这个面板用户管理的网站，再给我其中一个域名的站点详情」。`hestia_list_websites` 使用指定的用户，或配置中的 `HESTIA_USER`；选一个返回的域名，再调用 `hestia_get_website`。看到的域名应该与同一面板用户的网站列表一致。
+
+首次连通只需该查询用得到的权限。管理面板、访问业务表使用不同的配置：前者用面板访问密钥，后者按数据库、表和列授予范围。[业务表配置示例](examples/table-access.example.json)
 
 ## 安装和认证
 
@@ -30,13 +38,6 @@ MCP 入口为 `router.py`，需要 Python 3.11+。主机在本地保存账号配
 
 许可为 **AGPL-3.0-only**。[许可全文](LICENSE)
 
-## 实现参考
-
-按 HestiaCP 原生命令实现网站查询与创建，并对照社区连接器的命令白名单。GitHub 统计核对日期为 2026-11-11。
-
-- [hestiacp/hestiacp](https://github.com/hestiacp/hestiacp) · 4569 stars，默认分支 13253 次提交
-- [solkiewicz-artforin/hestiacp-mcp](https://github.com/solkiewicz-artforin/hestiacp-mcp) · 1 stars，默认分支 9 次提交
-
 ## 业务表连接
 
 通过 HESTIA_DATA_CONFIG_FILE 指向仅本机可读的 JSON。每个账号提供 database、engine，以及 tables 字典。表条目标明 table、primary_key 和允许的 columns。PostgreSQL 使用 pgsql 并安装 psycopg[binary]；MySQL 使用 mysql 并安装 PyMySQL。两者均需 host、user、password_file 和 TLS ca_file；SQLite 使用已存在的数据库文件。使用独立的最小权限数据库用户。[示例](examples/table-access.example.json)
@@ -44,3 +45,14 @@ MCP 入口为 `router.py`，需要 Python 3.11+。主机在本地保存账号配
 [原生插件页多账号接入候选版：部署、覆盖范围与验收](native_account/README.md)
 
 使用 Codex 插件页连接、重连和管理多个工作站账号，见[工作站接入](native_account/WORKSTATION.md)。
+
+## English quick start
+
+Connect an authorized HestiaCP panel over HTTPS. Install the requirements with Python 3.11+, then point `HESTIA_BASE_URL` at your panel and `HESTIA_KEY_FILE` at a private file containing its access key pair. Set `HESTIA_USER` for the panel user you intend to inspect. Run `python client_config.py cursor` with those settings and load the entry. Try `hestia_list_websites` first and compare the returned domains with the same user's panel.
+
+## 实现参考
+
+按 HestiaCP 原生命令实现网站查询与创建，并对照社区连接器的命令白名单。GitHub 统计核对日期为 2026-11-11。
+
+- [hestiacp/hestiacp](https://github.com/hestiacp/hestiacp) · 4569 stars，默认分支 13253 次提交
+- [solkiewicz-artforin/hestiacp-mcp](https://github.com/solkiewicz-artforin/hestiacp-mcp) · 1 stars，默认分支 9 次提交
